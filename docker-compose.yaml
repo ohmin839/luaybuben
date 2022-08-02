@@ -1,0 +1,9 @@
+version: "1"
+services:
+  lua:
+    tty: true
+    build:
+      context: .
+      dockerfile: ./docker/lua/Dockerfile
+    volumes:
+      - ./:/luaybuben
