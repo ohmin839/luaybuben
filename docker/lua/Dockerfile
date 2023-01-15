@@ -1,8 +1,7 @@
-
 FROM debian:bullseye-slim
 
 RUN apt-get update && \
-    apt-get install -qy build-essential curl unzip 
+    apt-get install -qy build-essential curl unzip libreadline-dev
 
 ARG USERNAME=user
 ARG GROUPNAME=user
@@ -18,7 +17,7 @@ RUN cd /tmp && \
     curl -sf -R -O http://www.lua.org/ftp/lua-${LUA_VERSION}.tar.gz && \
     tar zxf lua-${LUA_VERSION}.tar.gz && \
     cd lua-${LUA_VERSION} && \
-    make all test && \
+    make linux-readline test && \
     make install && \
     cd /tmp && \
     # luarocks
